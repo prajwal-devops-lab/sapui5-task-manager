@@ -1,0 +1,24 @@
+<mvc:View
+    controllerName="todo.controller.App"
+    xmlns="sap.m"
+    xmlns:mvc="sap.ui.core.mvc"
+    displayBlock="true">
+  <Page title="Task Manager (OpenUI5)">
+    <content>
+      <VBox class="sapUiSmallMargin">
+        <HBox>
+          <Input id="taskInput" placeholder="Enter a task" width="20rem"
+                 submit=".onAddTask" class="sapUiTinyMarginEnd"/>
+          <Button text="Add" type="Emphasized" press=".onAddTask"/>
+        </HBox>
+        <SearchField placeholder="Search tasks" liveChange=".onSearch"
+                     class="sapUiSmallMarginTop"/>
+        <Text text="Total tasks: {= ${/tasks}.length }" class="sapUiSmallMarginTop"/>
+      </VBox>
+      <List id="taskList" items="{/tasks}" mode="Delete"
+            delete=".onDeleteTask" noDataText="No tasks yet">
+        <StandardListItem title="{title}"/>
+      </List>
+    </content>
+  </Page>
+</mvc:View>
